@@ -1,0 +1,6 @@
+pyproject.toml
+notes_mcp.egg-info/PKG-INFO
+notes_mcp.egg-info/SOURCES.txt
+notes_mcp.egg-info/dependency_links.txt
+notes_mcp.egg-info/requires.txt
+notes_mcp.egg-info/top_level.txt
