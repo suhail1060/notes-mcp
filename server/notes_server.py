@@ -46,5 +46,18 @@ def search_notes(query: str) -> str:
     return "\n".join(matches) if matches else "No matches found."
 
 
+@mcp.prompt()
+def summarize_note(filename: str) -> str:
+    """Generate a prompt asking the LLM to summarize a given note."""
+    path = NOTES_DIR / filename
+    if not path.exists():
+        return f"Note '{filename}' not found."
+    content = path.read_text()
+    return (
+        f"Summarize the following note in 2-3 sentences.\n\n"
+        f"Title: {filename}\n"
+        f"Content:\n{content}"
+    )
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")
