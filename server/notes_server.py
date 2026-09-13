@@ -59,5 +59,13 @@ def summarize_note(filename: str) -> str:
         f"Content:\n{content}"
     )
 
+@mcp.tool()
+def read_note(filename: str) -> str:
+    """Read and return the full contents of a note by filename."""
+    path = NOTES_DIR / filename
+    if not path.exists():
+        return f"Note '{filename}' not found."
+    return path.read_text()
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")
